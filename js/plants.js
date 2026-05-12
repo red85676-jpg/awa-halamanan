@@ -6,11 +6,10 @@ const plBack = document.getElementById('pl-back');
 if (plFront && plBack) {
 
     const plImages = [
-        'images/pl1.jpg',
-        'images/pl2.jpg',
-        'images/pl3.jpg',
-        'images/pl4.jpg',
-        'images/pl5.jpg'
+        'images/pl1.png',
+        'images/pl2.png',
+        'images/pl3.png',
+        'images/pl4.png'
     ];
 
     let plIndex = 0;
