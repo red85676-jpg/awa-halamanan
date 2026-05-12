@@ -19,7 +19,7 @@ body.gallery-page::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('images/new4.jpg');
+    background-image: url('images/new2.png');
     background-size: cover;
     background-position: center;
     filter: blur(10px) brightness(0.5);
@@ -144,7 +144,7 @@ body:not(.gallery-page) .hero::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('images/new3.jpg');
+    background-image: url('images/new3.png');
     background-size: cover;
     background-position: center;
     filter: blur(8px) brightness(0.6);
@@ -165,7 +165,6 @@ body:not(.gallery-page) .hero::before {
     margin-bottom: 1rem;
     color: #ffffff;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
-    text-transform: uppercase;
 }
 
 .hero p {
@@ -219,20 +218,20 @@ body:not(.gallery-page) .hero::before {
     background: transparent !important;
 }
 
-.grid {
+.grid, .featured-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
 }
 
 .item-label {
-    margin-top: 1.2rem;
-    font-weight: 800;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
+    margin-top: 0.4rem;
+    margin-bottom: 4rem;
+    font-weight: 750;
+    text-align: left;
+    letter-spacing: 1px;
     color: #1b3022;
-    font-size: 0.9rem;
+    font-size: 1.5rem;
     display: block;
 }
 
@@ -243,7 +242,7 @@ body:not(.gallery-page) .hero::before {
 
 .img-placeholder {
     width: 100%;
-    aspect-ratio: 1/1;
+    aspect-ratio: 2/3;
     background: #eee;
     display: flex;
     align-items: center;
@@ -258,9 +257,9 @@ body:not(.gallery-page) .hero::before {
 .slideshow-container {
     position: relative;
     width: 100%;
-    aspect-ratio: 1/1;
+    aspect-ratio: 2/3;
     overflow: hidden;
-    border-radius: 12px;
+    border-radius: 0px;
 }
 
 .slideshow-container img, .featured-img {
@@ -432,9 +431,9 @@ body:not(.gallery-page) .grid {
 body.gallery-page .grid {
     display: grid !important;
     grid-template-columns: repeat(6, 1fr) !important;
-    column-gap: 80px !important;
-    row-gap: 60px;
-    max-width: 95%;
+    column-gap: 8px !important;
+    row-gap: 40px;
+    max-width: 98%;
     margin: 0 auto;
     text-align: left; /* Prevents center-align from breaking the grid math */
 }
@@ -457,8 +456,18 @@ body.gallery-page .grid .item:nth-child(5) {
     text-align: center;
     font-size: 2.3rem;
     font-weight: 700;
-    margin-bottom: 2rem;
-    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.featuring {
+    width: 100%;
+    text-align: left !important;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-top: 4rem !important;
+    margin-bottom: 0.5rem !important;
+    margin-left: -0.2rem !important;
+
 }
 
 /* --- SERVICES PAGE: DOMINANT SLIDESHOW LAYOUT --- */
@@ -559,16 +568,6 @@ body.gallery-page .grid .item:nth-child(5) {
     line-height: 1.8;   /* Extra breathing room between lines */
     opacity: 0.9;      /* Makes the white text feel slightly more premium */
     
-}
-
-/* Adjust for smaller screens so it doesn't overflow */
-@media (max-width: 1100px) {
-    .service-card.text-box h3 {
-        font-size: 1.8rem;
-    }
-    .service-card.text-box p {
-        font-size: 1.1rem;
-    }
 }
 
 /* --- ABOUT PAGE: SEAMLESS VERTICAL STACK --- */
@@ -752,11 +751,19 @@ body.gallery-page .grid .item:nth-child(5) {
     }
 
     /* 2. Force all items to be full-width (No exceeding screen) */
-    .item, .img-box, .featured-box, .slideshow-container {
+    .item, .img-box, .featured-box {
         width: 100% !important;
         max-width: 100% !important;
         grid-column: span 1 !important; /* Overrides any desktop spans */
         aspect-ratio: 1 / 1 !important;
+        height: auto !important;
+    }
+
+    .slideshow-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        grid-column: span 1 !important; /* Overrides any desktop spans */
+        aspect-ratio: 2 / 3 !important;
         height: auto !important;
     }
 
@@ -785,6 +792,7 @@ body.gallery-page .grid .item:nth-child(5) {
         font-size: 1rem !important;
         margin-bottom: 2px !important;
     }
+
 
     /* 4. Small Before/After labels */
     .status-label {
@@ -827,8 +835,9 @@ body.gallery-page .grid .item:nth-child(5) {
     .item-label {
         margin-top: 0.5rem !important; /* Pulls the text closer to its image */
         margin-bottom: 2.5rem !important; /* Pushes the next image further away */
-        font-size: 0.85rem !important;
-    }
+        font-size: 1.5rem !important;
+        gap: 60px !important;
+    }   
 
     /* 2. Ensure the grid container doesn't force awkward spacing */
     body:not(.gallery-page) .grid {
@@ -874,11 +883,19 @@ body.gallery-page .grid .item:nth-child(5) {
     }
 
     /* Ensure every image/slideshow box stays inside the screen */
-    .item, .slideshow-container, .img-placeholder {
+    .item, .img-placeholder {
         width: 100% !important;
         max-width: 100% !important;
         flex: none !important;
         aspect-ratio: 1 / 1 !important; /* Keep them square but fitting */
+    }
+
+    .slideshow-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: none !important;
+        aspect-ratio: 2 / 3 !important; /* Keep them square but fitting */
+        height: auto !important;
     }
 
     /* 4. Fix Large Headers */
@@ -888,3 +905,4 @@ body.gallery-page .grid .item:nth-child(5) {
         padding: 0 10px;
     }
 }
+
