@@ -615,3 +615,276 @@ body.gallery-page .grid .item:nth-child(5) {
     hyphens: auto;
     margin: 0;
 }
+
+/* --- COMPREHENSIVE MOBILE ADAPTABILITY --- */
+
+@media (max-width: 768px) {
+    /* 1. Prevent Horizontal Shake/Overflow */
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* 2. Navigation Bar: Stack Logo and 4-item Menu */
+    nav {
+        flex-direction: column !important;
+        padding: 1rem 2% !important;
+    }
+
+    .logo {
+        font-size: 1.2rem !important;
+        margin-bottom: 12px;
+        text-align: center;
+    }
+
+    nav ul {
+        width: 100% !important;
+        display: flex !important;
+        flex-wrap: nowrap !important; /* Forces 4 items on one line */
+        justify-content: space-between !important;
+        padding: 4px !important;
+        gap: 2px !important;
+    }
+
+    nav ul li a {
+        padding: 10px 4px !important;
+        font-size: 0.75rem !important;
+        letter-spacing: 0px !important;
+        white-space: nowrap !important;
+    }
+
+    /* 3. "Green Dreams" / Story Card Fix */
+    .story-card {
+        width: 90% !important;
+        max-width: 100% !important;
+        padding: 2.5rem 1.5rem !important;
+        margin: 2rem auto !important;
+        height: auto !important;
+    }
+
+    .story-card p {
+        font-size: 1.1rem !important;
+        line-height: 1.6 !important;
+    }
+
+    /* 4. Services Section: Square Image on Top, Wide Text on Bottom */
+    .service-row, 
+    .service-row.reverse {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0 !important; /* Image and box touch */
+        margin-bottom: 60px !important; /* Gap between sections */
+    }
+
+    .service-slideshow {
+        width: 100% !important;
+        aspect-ratio: 1 / 1 !important;
+        order: 1 !important; /* Image always first */
+    }
+
+    .service-card.text-box {
+        width: 100% !important;
+        order: 2 !important; /* Text always second */
+        padding: 1.5rem 1rem !important; /* Low-profile wide look */
+        text-align: center;
+        height: auto !important;
+    }
+
+    .service-card.text-box h3 {
+        font-size: 1.2rem !important;
+        margin-bottom: 5px !important;
+    }
+
+    .service-card.text-box p {
+        font-size: 0.85rem !important;
+        line-height: 1.4 !important;
+    }
+
+    /* 5. About Page: Stacked Photo and Text */
+    .about-container {
+        flex-direction: column !important;
+        width: 100% !important;
+    }
+
+    .about-image-box {
+        width: 100% !important;
+        aspect-ratio: 4 / 3 !important;
+        margin-bottom: 0 !important;
+    }
+
+    .about-text-box {
+        width: 100% !important;
+        padding: 2rem 1.5rem !important;
+        margin-top: 0 !important;
+    }
+
+    /* 6. General Hero/Header scaling */
+    .hero h2 {
+        font-size: 1.8rem !important;
+        letter-spacing: 2px !important;
+        padding: 0 10px;
+    }
+
+    .hero p {
+        font-size: 0.8rem !important;
+    }
+
+    /* 7. Footer Fix */
+    footer {
+        padding: 20px 0 !important;
+        font-size: 0.8rem !important;
+    }
+}
+
+/* --- STRICT MOBILE-ONLY OVERRIDES (Triggers at 768px and below) --- */
+@media (max-width: 768px) {
+
+    /* 1. Force Home & Gallery Grids to Stack Vertically */
+    .grid, 
+    body.gallery-page .grid {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        padding: 0 15px !important;
+        gap: 30px !important;
+    }
+
+    /* 2. Force all items to be full-width (No exceeding screen) */
+    .item, .img-box, .featured-box, .slideshow-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        grid-column: span 1 !important; /* Overrides any desktop spans */
+        aspect-ratio: 1 / 1 !important;
+        height: auto !important;
+    }
+
+    /* 3. Services & About: Wide Textbox with Small Font */
+    .service-row, .service-row.reverse, .about-container {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0 !important;
+    }
+
+    .service-card.text-box, .about-text-box {
+        width: 100% !important;
+        padding: 1rem 0.8rem !important; /* Extremely low profile */
+        order: 2 !important;
+    }
+
+    /* Smaller font makes the box look wider and shorter */
+    .service-card.text-box p, .about-text-box p {
+        font-size: 0.7rem !important; 
+        line-height: 1.3 !important;
+        margin: 0 auto !important;
+        max-width: 90% !important;
+    }
+
+    .service-card.text-box h3, .about-text-box h2 {
+        font-size: 1rem !important;
+        margin-bottom: 2px !important;
+    }
+
+    /* 4. Small Before/After labels */
+    .status-label {
+        font-size: 0.6rem !important; 
+        padding: 3px 6px !important;
+        letter-spacing: 1px !important;
+        bottom: 8px !important;
+    }
+
+    /* 5. Navigation Cleanup */
+    nav {
+        flex-direction: column !important;
+        padding: 10px !important;
+    }
+
+    nav ul {
+        width: 100% !important;
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        justify-content: space-between !important;
+        gap: 0 !important;
+    }
+
+    nav ul li a {
+        font-size: 0.7rem !important;
+        padding: 8px 2px !important;
+        white-space: nowrap !important;
+    }
+
+    /* 6. Kill Horizontal Scroll */
+    html, body {
+        overflow-x: hidden !important;
+        width: 100%;
+    }
+}
+
+/* --- MOBILE SPACING FIX --- */
+@media (max-width: 768px) {
+    /* 1. Reduce the gap between the image and its label */
+    .item-label {
+        margin-top: 0.5rem !important; /* Pulls the text closer to its image */
+        margin-bottom: 2.5rem !important; /* Pushes the next image further away */
+        font-size: 0.85rem !important;
+    }
+
+    /* 2. Ensure the grid container doesn't force awkward spacing */
+    body:not(.gallery-page) .grid {
+        gap: 0 !important; /* We use the label's margin to control spacing instead */
+    }
+
+    /* 3. Add space after the last item in a group */
+    .item {
+        margin-bottom: 10px; /* Minor breathing room */
+    }
+}
+
+/* --- COMPREHENSIVE MOBILE OVERFLOW FIX (NAVBAR EXCLUDED) --- */
+
+@media (max-width: 768px) {
+    /* 1. Prevent Horizontal Scrolling on the whole page */
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    /* 2. Fix "Green Dreams" (Story Card) width */
+    .story-card {
+        width: 90% !important; /* Prevents it from hitting screen edges */
+        max-width: 100% !important;
+        padding: 2rem 1rem !important;
+        margin: 2rem auto !important;
+    }
+
+    .story-card p {
+        font-size: 1.1rem !important;
+        line-height: 1.6 !important;
+    }
+
+    /* 3. Fix Featured Section & Slideshows (Forced Stack) */
+    body:not(.gallery-page) .grid {
+        display: flex !important;
+        flex-direction: column !important; /* Stack images vertically */
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 15px !important;
+        gap: 40px !important;
+    }
+
+    /* Ensure every image/slideshow box stays inside the screen */
+    .item, .slideshow-container, .img-placeholder {
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: none !important;
+        aspect-ratio: 1 / 1 !important; /* Keep them square but fitting */
+    }
+
+    /* 4. Fix Large Headers */
+    .page-content h2 {
+        font-size: 1.8rem !important;
+        letter-spacing: 2px !important;
+        padding: 0 10px;
+    }
+}
