@@ -6,11 +6,11 @@ const backImg = document.getElementById('back-image');
 if (frontImg && backImg) {
 
     const images = [
-        'images/new.jpg',
-        'images/new1.jpg',
-        'images/new2.jpg',
-        'images/new3.jpg',
-        'images/new4.jpg'
+        'images/new.png',
+        'images/new1.png',
+        'images/new2.png',
+        'images/new3.png',
+
     ];
 
     let currentIndex = 0;
