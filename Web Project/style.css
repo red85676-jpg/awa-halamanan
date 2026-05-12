@@ -1,0 +1,617 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fcfcfc;
+}
+
+/* --- GALLERY PAGE SPECIFIC BACKGROUND --- */
+body.gallery-page::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/new4.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: blur(10px) brightness(0.5);
+    z-index: -1;
+    transform: scale(1.1);
+}
+
+/* --- NAVIGATION --- */
+/* --- UPDATED DARK NAVIGATION --- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 5%;
+    align-items: center;
+    background-color: #1b3022; /* Matches your footer color */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    line-height: 1;
+    color: #ffffff; /* Changed to white for visibility */
+    transition: font-size 0.4s ease;
+}
+
+/* The Shrunk State */
+nav.scrolled {
+    padding: 0.7rem 5%; 
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+nav {
+    view-transition-name: main-nav;
+    contain: layout;
+}
+nav ul {
+    display: flex;
+    list-style: none;
+    position: relative; 
+    padding: 5px;
+    background: rgba(255, 255, 255, 0.1); 
+    border-radius: 8px;
+    align-items: center;
+    transition: transform 0.4s ease; /* Smoothly scales the menu if needed */
+
+}
+
+nav ul li {
+    position: relative;
+    z-index: 2; 
+    display: flex;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    padding: 10px 25px; /* Starting link size */
+    display: block;
+    width: 100%;
+    position: relative;
+    z-index: 3;
+    transition: padding 0.4s ease, font-size 0.4s ease;
+}
+
+/* --- THE REDUCTION --- */
+/* When nav is scrolled, shrink the links and the logo */
+nav.scrolled ul li a {
+    padding: 6px 18px; /* Shaved off a few pixels */
+    font-size: 0.85rem; /* Slightly smaller text */
+}
+
+nav.scrolled .logo {
+    font-size: 1.4rem;
+
+}
+
+nav ul li a.active {
+    color: #ffffff !important;
+}
+
+.nav-pill {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    height: calc(100% - 10px);
+
+    background-color: #326123;
+    border-radius: 6px;
+    z-index: 1;
+    pointer-events: none;
+
+    transition:
+        width 0.1s ease,
+        left 0.1s ease;
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    position: relative;
+    height: 50vh; 
+    min-height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Only show hero background if NOT on gallery page */
+body:not(.gallery-page) .hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/new3.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px) brightness(0.6);
+    transform: scale(1.1);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.hero h1, .hero h2 {
+    font-size: 2.3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+    text-transform: uppercase;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    color: #ffffff;
+    margin-bottom: 2rem;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+    opacity: 0.95;
+}
+
+/* --- BUTTONS --- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2.5rem;
+    background-color: #326123;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.btn:hover {
+    background-color: #3d752b;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.fb-icon {
+    height: 20px;
+    width: auto;
+    transform: translateY(-2.5px);
+    transition: filter 0.3s ease;
+}
+
+.btn:hover .fb-icon {
+    filter: brightness(1.2);
+}
+
+/* --- GRID & CONTENT --- */
+.page-content {
+    min-height: 70vh;
+    padding: 2.5rem 10%;
+}
+
+.gallery-page .page-content {
+    background: transparent !important;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.item-label {
+    margin-top: 1.2rem;
+    font-weight: 800;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #1b3022;
+    font-size: 0.9rem;
+    display: block;
+}
+
+.gallery-page .item-label {
+    color: #ffffff;
+    text-shadow: 0 1px 5px rgba(0,0,0,0.5);
+}
+
+.img-placeholder {
+    width: 100%;
+    aspect-ratio: 1/1;
+    background: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    color: #888;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* --- SLIDESHOW --- */
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.slideshow-container img, .featured-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 1.5s ease-in-out;
+}
+
+
+/* --- CARDS (About & Services) --- */
+.service-card, .story-card {
+    background-color: #326123;
+    color: #ffffff;
+    padding: 3rem 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.story-card {
+    max-width: 800px;
+    margin: 4rem auto;
+}
+
+.story-card p {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    line-height: 1.9;
+}
+
+/* --- FOOTER --- */
+footer {
+    padding: 3rem 5%;
+    text-align: center;
+    background: #1b3022;
+    color: white;
+    position: relative;
+    z-index: 2;
+}
+
+/* --- GALLERY GRID & HIERARCHY --- */
+
+.gallery-page .page-content {
+    padding-top: 0;
+    margin-top: -80px; /* Lifts boxes into the hero area */
+}
+
+.gallery-page .grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* 6-column base for math */
+    column-gap: 80px; /* Pushes Big Boys apart */
+    row-gap: 60px;
+    max-width: 95%; 
+    margin: 0 auto;
+}
+
+/* Position: Row 1 (Big Boys) */
+.gallery-page .grid .item:nth-child(1),
+.gallery-page .grid .item:nth-child(2) {
+    grid-column: span 3;
+}
+
+/* Position: Row 2 (Small Three) */
+.gallery-page .grid .item:nth-child(4),
+.gallery-page .grid .item:nth-child(5),
+.gallery-page .grid .item:nth-child(6) {
+    grid-column: span 2;
+}
+
+/* --- IMAGE BOX & OVERLAY --- */
+
+.img-box, .img-placeholder {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 0 !important; /* Forces square borders */
+    overflow: hidden;
+    background-color: #1b3022;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+/* Dark gradient so white text is readable on light images */
+.featured-box::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 50%);
+    z-index: 1;
+}
+
+/* The Overlay Text (Vertical Gardens / Topiaries) */
+.box-text {
+    position: absolute;
+    bottom: 25px;
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease;
+}
+
+/* --- HOVER EFFECTS --- */
+
+.featured-box:hover img {
+    transform: scale(1.05);
+}
+
+.featured-box:hover .box-text {
+    transform: translateY(-5px);
+}
+
+/* Navigation Letter Pop */
+nav ul li a {
+    display: inline-block;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+nav ul li a:hover {
+    transform: scale(1.15) translateY(-3px);
+    letter-spacing: 1.5px;
+    color: #ffffff;
+}
+
+/* --- 1. ABOUT PAGE (Centered Story) --- */
+/* We only apply Flexbox if the "story-card" is present */
+.page-content:has(.story-card) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* --- 2. HOME PAGE (Horizontal 3-column Grid) --- */
+/* Target the grid specifically when NOT on the gallery page */
+body:not(.gallery-page) .grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* --- 3. GALLERY PAGE (6-column Feature Grid) --- */
+/* This restores your 2-big, 3-small layout */
+body.gallery-page .grid {
+    display: grid !important;
+    grid-template-columns: repeat(6, 1fr) !important;
+    column-gap: 80px !important;
+    row-gap: 60px;
+    max-width: 95%;
+    margin: 0 auto;
+    text-align: left; /* Prevents center-align from breaking the grid math */
+}
+
+/* Gallery Spans */
+body.gallery-page .grid .item:nth-child(1),
+body.gallery-page .grid .item:nth-child(2) {
+    grid-column: span 3 !important;
+}
+
+body.gallery-page .grid .item:nth-child(3),
+body.gallery-page .grid .item:nth-child(4),
+body.gallery-page .grid .item:nth-child(5) {
+    grid-column: span 2 !important;
+}
+
+/* --- 4. UNIVERSAL H2 (Centered) --- */
+.page-content h2 {
+    width: 100%;
+    text-align: center;
+    font-size: 2.3rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+}
+
+/* --- SERVICES PAGE: DOMINANT SLIDESHOW LAYOUT --- */
+
+.services-container {
+    max-width: 1300px; /* Wider container to allow the image to grow */
+    margin: 5rem auto;
+    padding: 0 5%;
+}
+
+.service-row {
+    display: flex;
+    align-items: stretch; /* Forces text box height to match the big square */
+    margin-bottom: 120px; /* More breathing room between sections */
+}
+
+/* The Narrow Sidekick Text Box */
+.service-card.text-box {
+    flex: 1; /* Takes up 1 part of the space */
+    background-color: #326123;
+    padding: 3rem 2rem;
+    border-radius: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* The Massive Square Slideshow */
+.service-slideshow {
+    position: relative;
+    flex: 2;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 0px;
+}
+
+.img-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 1.5s ease-in-out; /* The fade happens here */
+}
+
+/* Front starts on top, back stays behind */
+#lds-front-wrapper { z-index: 2; opacity: 1; }
+#lds-back-wrapper { z-index: 1; opacity: 1; }
+
+/* --- CENTERED BEFORE/AFTER LABELS --- */
+
+/* --- BOTTOM-CENTERED LABELS --- */
+
+.status-label {
+    position: absolute;
+    bottom: 50px;      /* Distance from the bottom edge */
+    left: 50%;         /* Move to the horizontal middle */
+    transform: translateX(-50%); /* Pull back by half its width to center perfectly */
+    
+    z-index: 99;
+    color: #ffffff;
+    
+    /* Big and Bold */
+    font-size: 2.8rem; 
+    font-weight: 900;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    
+    /* Heavy shadow to keep it visible on grass/dirt/sky */
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.9), 
+                 2px 2px 10px rgba(0, 0, 0, 1);
+                 
+    pointer-events: none;
+}
+
+.service-row.reverse {
+    flex-direction: row-reverse !important;
+}
+
+/* Ensure the gap remains consistent after the swap */
+.service-row.reverse .text-box {
+    margin-left: 0;
+}
+
+.service-card.text-box h3 {
+    font-size: 2.2rem; /* Was likely around 1.5rem */
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    letter-spacing: 2px;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.service-card.text-box p {
+    font-size: 1.25rem; /* Standard readable large text */
+    line-height: 1.8;   /* Extra breathing room between lines */
+    opacity: 0.9;      /* Makes the white text feel slightly more premium */
+    
+}
+
+/* Adjust for smaller screens so it doesn't overflow */
+@media (max-width: 1100px) {
+    .service-card.text-box h3 {
+        font-size: 1.8rem;
+    }
+    .service-card.text-box p {
+        font-size: 1.1rem;
+    }
+}
+
+/* --- ABOUT PAGE: SEAMLESS VERTICAL STACK --- */
+
+.about-container {
+    max-width: 850px; /* Adjust this to control how wide the whole block is */
+    margin: 0 auto 100px auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Sharp Edges Everywhere */
+.about-image-box, 
+.about-photo, 
+.about-text-box {
+    border-radius: 0 !important;
+}
+
+.about-image-box {
+    width: 100%;
+    aspect-ratio: 4 / 3; /* Forces the 4x3 geometry */
+    overflow: hidden;
+    line-height: 0; /* Prevents tiny ghost gaps at the bottom of images */
+}
+
+.about-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures your image fills the 4:3 box without distortion */
+    display: block;
+}
+
+.about-text-box {
+    background-color: #326123;
+    color: #ffffff;
+    padding: 4rem 3.5rem;
+    margin-top: 0; /* Ensures it touches the image perfectly */
+}
+
+.about-text-box p {
+    font-size: 1.3rem;
+    line-height: 1.9;
+    text-align: center;
+    hyphens: auto;
+    margin: 0;
+}
