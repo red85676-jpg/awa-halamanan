@@ -283,6 +283,25 @@ body:not(.gallery-page) .hero::before {
     transition: opacity 1.5s ease-in-out;
 }
 
+.slideshow-container-cactus {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    border-radius: 0px;
+}
+
+.slideshow-container-cactus img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 1.5s ease-in-out;
+}
+
+
 /* BOQUET */
 
 .boq-section {
@@ -304,13 +323,13 @@ body:not(.gallery-page) .hero::before {
 /* SINGLE TEXT OVERLAY */
 .boq-text {
     position: absolute;
-    bottom: 170px;
+    bottom: 80px;
     left: 50px;
 
     z-index: 2;
 
     color: white;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 750;
 
     text-shadow: 0 2px 10px rgba(0,0,0,0.85);
@@ -319,7 +338,7 @@ body:not(.gallery-page) .hero::before {
 
 .boq-subtext {
     position: absolute;
-    bottom: 146px;
+    bottom: 56px;
     left: 50px;
 
     z-index: 2;
@@ -330,8 +349,46 @@ body:not(.gallery-page) .hero::before {
 
     text-shadow: 0 20px 10px rgba(0,0,0,0.85);
     pointer-events: none;
+
+    text-decoration: underline;
+    text-underline-offset: 4px;
+
 }
 
+.boq-button {
+    position: absolute;
+    bottom: 30px;      /* Distance from the bottom edge */
+    left: 50%;         /* Move to middle of the screen */
+    transform: translateX(-50%); /* Pull back by half its own width to perfectly center */
+    z-index: 3;
+
+    /* Styling */
+    padding: 12px 30px;
+    background-color: #e0e0e0; 
+    color: #000000;
+    border-radius: 25px;
+    
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    /* Interactions */
+    cursor: pointer;
+    pointer-events: auto;
+    transition: all 0.2s ease;
+    border: none;
+    
+    /* Optional: subtle shadow to lift it off the images */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.boq-button:hover {
+    background-color: #d1d1d1;
+    transform: translateX(-50%) translateY(-2px); /* Slight lift on hover */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
 /* ORCHIDS */
 
 .orchids-section {
@@ -347,15 +404,31 @@ body:not(.gallery-page) .hero::before {
 }
 
 .pure {
+    font-family: 'Angkor', serif;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 
     color: white;
-    font-size: 15rem;
+    font-size: 12rem;
     font-weight: bold;
     letter-spacing: 10px;
+
+    margin: 0;
+    z-index: 2;
+}
+
+.pure-subtext {
+    position: absolute;
+    top: 70%;
+    left: 51%;
+    transform: translate(-50%, -50%);
+
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: 37px;
 
     margin: 0;
     z-index: 2;
@@ -584,7 +657,7 @@ body.gallery-page .grid .item:nth-child(5) {
     width: 100%;
     text-align: left !important;
     font-size: 2rem;
-    font-weight: 700;
+    font-weight: 500;
     margin-top: 4rem !important;
     margin-bottom: 0.5rem !important;
     margin-left: 0.2rem !important;
@@ -915,6 +988,8 @@ body:not(.gallery-page) .hero::before {
         height: auto !important;
     }
 
+
+    
     /* 3. Services & About: Wide Textbox with Small Font */
     .service-row, .service-row.reverse, .about-container {
         display: flex !important;
@@ -1140,13 +1215,13 @@ body:not(.gallery-page) .featured-grid .item {
 
 .boq-text {
     position: absolute;
-    bottom: 120px;
-    left: 20px;
+    bottom: 70px;
+    left: 10px;
 
     z-index: 2;
 
     color: white;
-    font-size: 1.8rem;
+    font-size: 1.3rem;
     font-weight: 750;
 
     text-shadow: 0 2px 10px rgba(0,0,0,0.85);
@@ -1155,17 +1230,21 @@ body:not(.gallery-page) .featured-grid .item {
 
 .boq-subtext {
     position: absolute;
-    bottom: 100px;
-    left: 20px;
+    bottom: 50px;
+    left: 10px;
 
     z-index: 2;
 
     color: white;
-    font-size: 1.08rem;
+    font-size: 0.8rem;
     font-weight: 200;
 
     text-shadow: 0 20px 10px rgba(0,0,0,0.85);
     pointer-events: none;
+
+    text-decoration: underline;
+    text-underline-offset: 4px;
+
 }
 
 /* Create a movement rule that only targets the IMAGES */
@@ -1224,6 +1303,38 @@ body:not(.gallery-page) .featured-grid .item {
         margin-bottom: 1px !important;
     }
 
+    .slideshow-container-cactus img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 70%;
+    height: 70%;
+    object-fit: cover;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.tight-scroll {
+    display: flex;
+    justify-content: flex-start;
+    gap: 0;
+}
+
+.tight-scroll .item:nth-child(2),
+.tight-scroll .item:nth-child(3) {
+    margin-left: -100px;
+}
+
+.tight-scroll2 {
+    display: flex;
+    justify-content: flex-start;
+    gap: 0;
+}
+
+.tight-scroll2 .item:nth-child(2),
+.tight-scroll2 .item:nth-child(3) {
+    margin-left: -9px;
+}
+
     /* ORCHIDS */
 
 .orchids-section {
@@ -1240,6 +1351,7 @@ body:not(.gallery-page) .featured-grid .item {
 }
 
 .pure {
+    font-family: 'Angkor', serif;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -1254,8 +1366,117 @@ body:not(.gallery-page) .featured-grid .item {
     z-index: 2;
 }
 
+.pure-subtext {
+    position: absolute;
+    top: 65%;
+    left: 51%;
+    transform: translate(-50%, -50%);
+
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 20px;
+
+    margin: 0;
+    z-index: 2;
+}
+
     .plants {
         margin-top: -100px !important;
     }
 
+}
+
+@media (max-width: 768px) {
+
+
+.boq-button {
+    position: absolute;
+    bottom: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+
+    padding: 5px 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+
+    background-color: #e0e0e0;
+    color: #000000;
+    border-radius: 12px;
+
+    text-decoration: none;
+    text-transform: uppercase;
+
+    cursor: pointer;
+    pointer-events: auto;
+    transition: all 0.2s ease;
+    border: none;
+
+    box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+}
+
+.boq-button:hover {
+    background-color: #d1d1d1;
+    transform: translateX(-50%) translateY(-2px);
+    box-shadow: 0 5px 12px rgba(0,0,0,0.18);
+}
+
+}
+
+/* --- GALLERY SPECIFIC CACTUS SCROLL --- */
+
+/* Desktop View: Keep them side-by-side in a clean grid */
+@media (min-width: 769px) {
+    .gallery-cactus-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 5px;
+        max-width: 1200px;
+        margin: 50px auto;
+        padding: 0 20px;
+    }
+}
+
+/* Mobile View: The "Tight Scroll" Logic Clone */
+@media (max-width: 768px) {
+    .gallery-cactus-row {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important; /* Enables swiping */
+        gap: 0 !important;
+        width: 100vw !important;
+        margin-left: calc(50% - 50vw) !important;
+        padding: 40px 80% !important; /* Centers the start of the scroll */
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+    }
+
+    .gallery-cactus-row .item {
+        flex: 0 0 100vw !important; /* Width of each card */
+        min-width: 100vw !important;
+        position: relative;
+        scroll-snap-align: center;
+    }
+
+    /* Cloned Overlap Logic */
+    .gallery-cactus-row .item:nth-child(2),
+    .gallery-cactus-row .item:nth-child(3) {
+        margin-left: -80px !important; /* Change this if you want more/less overlap than home */
+    }
+
+    /* Clean UI: Hide scrollbar */
+    .gallery-cactus-row::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+/* Ensure the slideshow images fit this specific container */
+.gallery-cactus-row .slideshow-container-cactus {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
