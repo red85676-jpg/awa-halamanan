@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
 body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     line-height: 1.6;
@@ -218,10 +223,16 @@ body:not(.gallery-page) .hero::before {
     background: transparent !important;
 }
 
-.grid, .featured-grid {
+.grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
+}
+
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.3rem;
 }
 
 .item-label {
@@ -257,7 +268,7 @@ body:not(.gallery-page) .hero::before {
 .slideshow-container {
     position: relative;
     width: 100%;
-    aspect-ratio: 2/3;
+    aspect-ratio: 4/5;
     overflow: hidden;
     border-radius: 0px;
 }
@@ -272,6 +283,101 @@ body:not(.gallery-page) .hero::before {
     transition: opacity 1.5s ease-in-out;
 }
 
+/* BOQUET */
+
+.boq-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    gap: 0;
+    position: relative;
+}
+
+.boq-section img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+}
+
+/* SINGLE TEXT OVERLAY */
+.boq-text {
+    position: absolute;
+    bottom: 170px;
+    left: 50px;
+
+    z-index: 2;
+
+    color: white;
+    font-size: 2rem;
+    font-weight: 750;
+
+    text-shadow: 0 2px 10px rgba(0,0,0,0.85);
+    pointer-events: none;
+}
+
+.boq-subtext {
+    position: absolute;
+    bottom: 146px;
+    left: 50px;
+
+    z-index: 2;
+
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 200;
+
+    text-shadow: 0 20px 10px rgba(0,0,0,0.85);
+    pointer-events: none;
+}
+
+/* ORCHIDS */
+
+.orchids-section {
+    position: relative;
+    width: 100%;
+}
+
+.orchids-section img {
+    margin-top: 160px;
+    width: 100%;
+    height: 500px;
+    display: block;
+}
+
+.pure {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    color: white;
+    font-size: 15rem;
+    font-weight: bold;
+    letter-spacing: 10px;
+
+    margin: 0;
+    z-index: 2;
+}
+
+.scroll-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+#purely-orchids {
+    scroll-margin-top: 100px;
+}
+
+#adore-indoor {
+    scroll-margin-top: 100px;
+}
 
 /* --- CARDS (About & Services) --- */
 .service-card, .story-card {
@@ -282,6 +388,21 @@ body:not(.gallery-page) .hero::before {
     text-align: center;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
+}
+
+.image-text {
+    position: absolute;
+    bottom: 30px;       /* Distance from bottom */
+    left: 5px;         /* Distance from left */
+    z-index: 10;        /* Keep text above images */
+    color: white;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-family: sans-serif;
+    font-size: 1.5rem;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    pointer-events: none; /* Allows clicks to pass through to the image */
 }
 
 .story-card {
@@ -466,7 +587,7 @@ body.gallery-page .grid .item:nth-child(5) {
     font-weight: 700;
     margin-top: 4rem !important;
     margin-bottom: 0.5rem !important;
-    margin-left: -0.2rem !important;
+    margin-left: 0.2rem !important;
 
 }
 
@@ -790,7 +911,7 @@ body:not(.gallery-page) .hero::before {
         width: 100% !important;
         max-width: 100% !important;
         grid-column: span 1 !important; /* Overrides any desktop spans */
-        aspect-ratio: 2 / 3 !important;
+        aspect-ratio: 4 / 5 !important;
         height: auto !important;
     }
 
@@ -854,7 +975,24 @@ body:not(.gallery-page) .hero::before {
         overflow-x: hidden !important;
         width: 100%;
     }
+    .image-text {
+    position: absolute;
+    bottom: 20px;       /* Distance from bottom */
+    left: 0.3px;         /* Distance from left */
+    z-index: 10;        /* Keep text above images */
+    color: white;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-family: sans-serif;
+    font-size: 1.1rem;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    pointer-events: none; /* Allows clicks to pass through to the image */
 }
+
+}
+
+
 
 /* --- MOBILE SPACING FIX --- */
 @media (max-width: 768px) {
@@ -905,7 +1043,7 @@ body:not(.gallery-page) .hero::before {
         flex-direction: column !important; /* Stack images vertically */
         width: 100% !important;
         max-width: 100% !important;
-        padding: 0 15px !important;
+        padding: 0 !important;
         gap: 40px !important;
     }
 
@@ -921,7 +1059,7 @@ body:not(.gallery-page) .hero::before {
         width: 100% !important;
         max-width: 100% !important;
         flex: none !important;
-        aspect-ratio: 2 / 3 !important; /* Keep them square but fitting */
+        aspect-ratio: 4 / 5 !important; /* Keep them square but fitting */
         height: auto !important;
     }
 
@@ -933,3 +1071,191 @@ body:not(.gallery-page) .hero::before {
     }
 }
 
+@media (max-width: 768px) {
+
+body:not(.gallery-page) .featured-grid {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+
+    width: 100vw !important;
+    margin-left: calc(50% - 50vw);
+
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+
+    gap: 12px !important;
+
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+
+    box-sizing: border-box;
+}
+
+/* LEFT spacer */
+body:not(.gallery-page) .featured-grid::before {
+    content: "";
+    flex: 0 0 50%;
+}
+
+/* RIGHT spacer */
+body:not(.gallery-page) .featured-grid::after {
+    content: "";
+    flex: 0 0 50%;
+}
+
+body:not(.gallery-page) .featured-grid .item {
+    flex: 0 0 85% !important;
+    max-width: 85% !important;
+
+    scroll-snap-align: center;
+
+    box-sizing: border-box;
+}
+
+.featuring {
+    width: 100%;
+    text-align: left !important;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-top: 4rem !important;
+    margin-bottom: 0.5rem !important;
+    margin-left: -1.18rem !important;
+
+}
+
+}
+
+/* MOBILE LAYOUT (Default) */
+/* MOBILE LAYOUT */
+@media (max-width: 768px) {
+
+.boq-section {
+    display: flex; 
+    flex-wrap: nowrap; /* CRITICAL: Prevents images from stacking vertically */
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    position: relative;
+    overflow: hidden; /* Keeps the "extra" images invisible until they slide in */
+}
+
+.boq-text {
+    position: absolute;
+    bottom: 120px;
+    left: 20px;
+
+    z-index: 2;
+
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 750;
+
+    text-shadow: 0 2px 10px rgba(0,0,0,0.85);
+    pointer-events: none;
+}
+
+.boq-subtext {
+    position: absolute;
+    bottom: 100px;
+    left: 20px;
+
+    z-index: 2;
+
+    color: white;
+    font-size: 1.08rem;
+    font-weight: 200;
+
+    text-shadow: 0 20px 10px rgba(0,0,0,0.85);
+    pointer-events: none;
+}
+
+/* Create a movement rule that only targets the IMAGES */
+/* This prevents your TEXT from sliding away with the first image */
+.boq-section img {
+    min-width: 100vw; 
+    width: 100vw;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+    
+    /* Move the animation here so images slide, but text stays fixed */
+    animation: auto-swipe 9s infinite ease-in-out;
+}
+
+/* THE SWIPE KEYFRAMES */
+@keyframes auto-swipe {
+    /* Image 1 */
+    0%, 28% { transform: translateX(0); }
+    
+    /* Swipe Left to Image 2 */
+    33%, 61% { transform: translateX(-100vw); }
+    
+    /* Swipe Left to Image 3 */
+    66%, 94% { transform: translateX(-200vw); }
+    
+    /* Circle back to Start */
+    100% { transform: translateX(0); }
+
+}
+
+/* DESKTOP LAYOUT */
+@media (min-width: 768px) {
+    .boq-section {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        overflow: visible;
+    }
+
+    .boq-section img {
+        min-width: unset;
+        width: 100%;
+        animation: none; /* Turn off the swipe for desktop */
+        transform: none;
+
+    }
+
+}
+
+}
+
+/* MOBILE ONLY */
+@media (max-width: 768px) {
+
+    .orchids {
+        margin-bottom: 1px !important;
+    }
+
+    /* ORCHIDS */
+
+.orchids-section {
+    position: relative;
+    width: 100%;
+}
+
+.orchids-section img {
+    margin-top: 60px;
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    display: block;
+}
+
+.pure {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    color: white;
+    font-size: 6rem;
+    font-weight: bold;
+    letter-spacing: 10px;
+
+    margin: 0;
+    z-index: 2;
+}
+
+    .plants {
+        margin-top: -100px !important;
+    }
+
+}
