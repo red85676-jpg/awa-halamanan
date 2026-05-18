@@ -1,30 +1,7 @@
-/* =========================================
+/* =========================================================
    1. BASE & RESETS
-========================================= */
-
+========================================================= */
 @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
-
-.polaroid-text {
-    font-family: "Shadows Into Light", cursive;
-    font-weight: 900;
-    font-size: 2.3rem;
-    color: #333;
-    text-align: center;
-    margin: 0;
-    /* This centers the text vertically in that 60px bottom padding */
-    padding-top: 20px; 
-    width: 100%;
-}
-
-/* Ensure the Polaroid frame accommodates the text flow */
-.gallery-cactus-row .item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: #ffffff;
-    padding: 25px 15px 60px 15px; 
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-}
 
 * {
     margin: 0;
@@ -64,21 +41,21 @@ body.gallery-page::before {
     transform: scale(1.1);
 }
 
-/* =========================================
+/* =========================================================
    2. TYPOGRAPHY & UNIVERSAL ELEMENTS
-========================================= */
+========================================================= */
 .page-content h2 {
     width: 100%;
     text-align: center;
-    font-size: 2.3rem;
+    font-size: 1.5rem;
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin-bottom: 1.3rem;
 }
 
 .featuring {
     width: 100%;
     text-align: left !important;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 500;
     margin-top: 4rem !important;
     margin-bottom: 0.5rem !important;
@@ -92,13 +69,26 @@ body.gallery-page::before {
 }
 
 #purely-orchids, 
-#adore-indoor {
+#adore-indoor,
+#roses-are-red,
+#vertical-gardens {
     scroll-margin-top: 100px;
 }
 
-/* =========================================
+.polaroid-text {
+    font-family: "Shadows Into Light", cursive;
+    font-weight: 900;
+    font-size: 2.3rem;
+    color: #333;
+    text-align: center;
+    margin: 0;
+    padding-top: 20px; 
+    width: 100%;
+}
+
+/* =========================================================
    3. BUTTONS
-========================================= */
+========================================================= */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -131,9 +121,9 @@ body.gallery-page::before {
     transition: filter 0.3s ease;
 }
 
-/* =========================================
+/* =========================================================
    4. NAVIGATION
-========================================= */
+========================================================= */
 nav {
     display: flex;
     justify-content: space-between;
@@ -224,9 +214,9 @@ nav ul li a.active {
     transition: width 0.1s ease, left 0.1s ease;
 }
 
-/* =========================================
-   5. HERO SECTION
-========================================= */
+/* =========================================================
+   5. HERO & BANNER SECTIONS
+========================================================= */
 .hero {
     position: relative;
     height: 50vh; 
@@ -276,9 +266,32 @@ body:not(.gallery-page) .hero::before {
     opacity: 0.95;
 }
 
-/* =========================================
+/* --- Inquire Now Banner Layout --- */
+.inquire-banner-section {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important; 
+    padding: 80px 15px !important;
+    width: 100% !important;
+    box-sizing: border-box;
+}
+
+.inquire-banner-title {
+    font-size: 2.8rem !important; 
+    margin-bottom: 30px !important;
+    margin-top: 0 !important;
+    text-align: center !important; 
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: block !important;
+    width: 100% !important;
+}
+
+/* =========================================================
    6. LAYOUT & GRIDS (Desktop Base)
-========================================= */
+========================================================= */
 .page-content {
     min-height: 70vh;
     padding: 2.5rem 10%;
@@ -330,13 +343,23 @@ body.gallery-page .grid .item:nth-child(6) {
 
 /* Grid Items & Images */
 .item-label {
-    margin-top: 0.4rem;
-    margin-bottom: 4rem;
+    margin-top: 1rem;
+    margin-bottom: 0rem;
     font-weight: 750;
     text-align: left;
-    letter-spacing: 1px;
     color: #1b3022;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    display: block;
+}
+
+.item-label2 {
+    margin-top: 1rem;
+    margin-bottom: 4rem;
+    margin-right: 2.5rem;
+    font-weight: 250;
+    text-align: left;
+    color: #1b3022;
+    font-size: 1rem;
     display: block;
 }
 
@@ -408,9 +431,9 @@ body.gallery-page .grid .item:nth-child(6) {
     transform: translateY(-5px);
 }
 
-/* =========================================
+/* =========================================================
    7. SLIDESHOWS & IMAGE WRAPPERS
-========================================= */
+========================================================= */
 .slideshow-container {
     position: relative;
     width: 100%;
@@ -435,6 +458,7 @@ body.gallery-page .grid .item:nth-child(6) {
     aspect-ratio: 1/1;
     overflow: hidden;
     border-radius: 0px;
+    background: transparent !important;
 }
 
 .slideshow-container-cactus img {
@@ -447,9 +471,9 @@ body.gallery-page .grid .item:nth-child(6) {
     transition: opacity 1.5s ease-in-out;
 }
 
-/* =========================================
+/* =========================================================
    8. SPECIFIC SECTIONS
-========================================= */
+========================================================= */
 
 /* --- BOUQUET SECTION --- */
 .boq-section {
@@ -479,7 +503,8 @@ body.gallery-page .grid .item:nth-child(6) {
     font-size: 1.5rem;
     font-weight: 750;
     text-shadow: 0 2px 10px rgba(0,0,0,0.85);
-    pointer-events: none;
+    pointer-events: auto; 
+    text-decoration: none; 
 }
 
 .boq-subtext {
@@ -491,9 +516,15 @@ body.gallery-page .grid .item:nth-child(6) {
     font-size: 1.2rem;
     font-weight: 200;
     text-shadow: 0 20px 10px rgba(0,0,0,0.85);
-    pointer-events: none;
+    pointer-events: auto; 
     text-decoration: underline;
     text-underline-offset: 4px;
+}
+
+.boq-text:hover,
+.boq-subtext:hover {
+    color: #e0e0e0;
+    transition: color 0.3s ease;
 }
 
 .boq-button {
@@ -522,6 +553,49 @@ body.gallery-page .grid .item:nth-child(6) {
     background-color: #d1d1d1;
     transform: translateX(-50%) translateY(-2px);
     box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* --- IMAGE INTERACTION BOXES (ROSES / ACCENTS) --- */
+.roses-box {
+    position: relative;
+    overflow: hidden;
+}
+
+.roses-hover-btn, .cactus-hover-btn {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 30px);
+    z-index: 10;
+    background-color: #e0e0e0; 
+    color:#000000;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    padding: 15px 25px;
+    border-radius: 50px; 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease, background-color 0.2s ease;
+}
+
+.roses-box:hover .roses-hover-btn, 
+.roses-box:hover .cactus-hover-btn {
+    opacity: 1;
+    transform: translate(-50%, -40px); 
+}
+
+.roses-hover-btn:hover, 
+.cactus-hover-btn:hover {
+    background-color: #d1d1d1;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.roses-box:hover .featured-img {
+    filter: brightness(0.90);
+    transition: filter 0.3s ease;
 }
 
 /* --- ORCHIDS SECTION --- */
@@ -732,21 +806,43 @@ body.gallery-page .grid .item:nth-child(6) {
     pointer-events: none;
 }
 
-/* --- GALLERY CACTUS ROW --- */
-@media (min-width: 769px) {
-    .gallery-cactus-row {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 5px;
-        max-width: 1200px;
-        margin: 50px auto;
-        padding: 0 20px;
-    }
+/* --- GALLERY CACTUS ROW (Desktop Base) --- */
+.gallery-cactus-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
 }
 
-/* =========================================
+.gallery-cactus-row .item {
+    background: #ffffff;
+    padding: 25px 15px 60px 15px; 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; 
+}
+
+.gallery-cactus-row .item img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover; 
+    display: block;
+}
+
+.gallery-cactus-row .slideshow-container-cactus {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* =========================================================
    9. FOOTER
-========================================= */
+========================================================= */
 footer {
     padding: 3rem 5%;
     text-align: center;
@@ -756,9 +852,9 @@ footer {
     z-index: 2;
 }
 
-/* =========================================
-   10. MOBILE OVERRIDES (All merged & cleaned)
-========================================= */
+/* =========================================================
+   10. MOBILE OVERRIDES (Consolidated)
+========================================================= */
 @media (max-width: 768px) {
     /* Base Overrides */
     html, body {
@@ -769,8 +865,8 @@ footer {
     }
 
     .page-content h2 {
-        font-size: 1.8rem !important;
-        letter-spacing: 2px !important;
+        font-size: 1.1rem !important;
+        letter-spacing: 0px !important;
         padding: 0 10px;
     }
 
@@ -802,18 +898,18 @@ footer {
         white-space: nowrap !important;
     }
 
-    /* Hero */
-    .hero {
-        min-height: 550px;
-    }
-    
-    .hero h2 {
-        font-size: 1.8rem !important;
-        letter-spacing: 2px !important;
-    }
+    /* Hero & Banners */
+    .hero { min-height: 550px; }
+    .hero h2 { font-size: 1.8rem !important; letter-spacing: 2px !important; }
+    .hero p { font-size: 0.8rem !important; }
 
-    .hero p {
-        font-size: 0.8rem !important;
+    .inquire-banner-section { padding: 50px 15px !important; }
+    .inquire-banner-title {
+        font-size: 2.8rem !important; 
+        letter-spacing: 2px !important;
+        margin-bottom: 20px !important;
+        margin-left: 0px !important;
+        text-align: center !important; 
     }
 
     /* Grids & Gallery */
@@ -838,9 +934,16 @@ footer {
     }
 
     .item-label {
-        margin-top: 0.5rem !important;
+        margin-top: 0.8rem !important;
+        margin-bottom: 0.5rem !important;
+        font-size: 0.98rem !important;
+    } 
+
+    .item-label2 {
+        margin-top: 0rem !important;
         margin-bottom: 2.5rem !important;
-        font-size: 1.1rem !important;
+        margin-right: 2.2rem;
+        font-size: 0.8rem !important;
     } 
 
     .slideshow-container {
@@ -961,7 +1064,7 @@ footer {
         margin-bottom: 2px !important;
     }
 
-    /* Boquet Mobile Swiping */
+    /* Bouquet Mobile Swiping */
     .boq-section {
         display: flex; 
         margin-top: 10px;
@@ -982,44 +1085,15 @@ footer {
         100% { transform: translateX(0); }
     }
 
-    .boq-text {
-        bottom: 70px;
-        left: 10px;
-        font-size: 1.3rem;
-    }
-
-    .boq-subtext {
-        bottom: 50px;
-        left: 10px;
-        font-size: 0.8rem;
-    }
-
-    .boq-button {
-        bottom: 35px;
-        padding: 5px 12px;
-        font-size: 0.7rem;
-    }
+    .boq-text { bottom: 70px; left: 10px; font-size: 1.3rem; }
+    .boq-subtext { bottom: 50px; left: 10px; font-size: 0.8rem; }
+    .boq-button { bottom: 35px; padding: 5px 12px; font-size: 0.7rem; }
 
     /* Orchids */
-    .orchids {
-        margin-bottom: 1px !important;
-    }
-
-    .orchids-section img {
-        margin-top: 60px;
-        height: 360px;
-        object-fit: cover;
-    }
-
-    .pure {
-        font-size: 6rem;
-    }
-
-    .pure-subtext {
-        top: 65%;
-        font-size: 1.5rem;
-        letter-spacing: 20px;
-    }
+    .orchids { margin-bottom: 1px !important; }
+    .orchids-section img { margin-top: 60px; height: 360px; object-fit: cover; }
+    .pure { font-size: 6rem; }
+    .pure-subtext { top: 65%; font-size: 1.5rem; letter-spacing: 20px; }
 
     /* Labels & Badges */
     .status-label {
@@ -1028,58 +1102,81 @@ footer {
         letter-spacing: 1px !important;
         bottom: 8px !important;
     }
+    .image-text { bottom: 20px; left: 0.3px; font-size: 1.1rem; }
+    .plants { margin-top: -100px !important; }
 
-    .image-text {
-        bottom: 20px;
-        left: 0.3px;
-        font-size: 1.1rem;
-    }
-
-    .plants {
-        margin-top: -100px !important;
-    }
-
-    /* Special Scrolls & Cactus */
-    .slideshow-container-cactus img {
-        width: 70%;
-        height: 70%;
-    }
-
+    /* Special Scrolls */
     .tight-scroll, .tight-scroll2 {
         display: flex;
         justify-content: flex-start;
         gap: 0;
     }
-
     .tight-scroll .item:nth-child(2),
     .tight-scroll .item:nth-child(3) {
         margin-left: -100px;
     }
-
     .tight-scroll2 .item:nth-child(2),
     .tight-scroll2 .item:nth-child(3) {
         margin-left: -9px;
     }
 
-    /* Gallery Cactus Mobile Row */
+    /* --- GALLERY CACTUS ROW (Mobile Overrides) --- */
+    .slideshow-container-cactus img {
+        width: 70%;
+        height: 70%;
+    }
+
     .gallery-cactus-row {
         display: flex !important;
+        grid-template-columns: none;
         flex-direction: row !important;
         flex-wrap: nowrap !important;
-        overflow-x: auto !important;
-        gap: 0 !important;
+        overflow-x: auto !important; 
+        gap: 108px !important;
         width: 100vw !important;
         margin-left: calc(50% - 50vw) !important;
-        padding: 40px 80% !important; 
+        padding: 40px 10% !important; 
         -webkit-overflow-scrolling: touch;
         scroll-snap-type: x mandatory;
     }
 
+    .gallery-cactus-row::-webkit-scrollbar {
+        display: none;
+    }
+
     .gallery-cactus-row .item {
+        flex: 0 0 80vw !important; 
+        min-width: 80vw !important;
+        position: relative;
         scroll-snap-align: center;
-        flex: 0 0 85%;
-        max-width: 85%;
-        margin: 0 10px;
+        margin: 0; 
+    }
+
+    /* Mobile Buttons */
+    .roses-hover-btn {
+        left: 50% !important;
+        margin: 0 !important;
+        padding: 10px 15px !important; 
+        font-size: 0.75rem !important;
+        width: max-content !important; 
+        transform: translate(-50%, 20px) !important; 
+    }
+
+    .roses-box:hover .roses-hover-btn {
+        transform: translate(-50%, -25px) !important; 
+    }
+
+    .cactus-hover-btn {
+        left: 35% !important; 
+        margin: 0 !important;
+        padding: 8px 14px !important; 
+        font-size: 0.7rem !important;
+        width: max-content !important;
+        transform: translate(-50%, 40px) !important; 
+    }
+
+    .roses-box:hover .cactus-hover-btn {
+        transform: translate(-50%, -110px) !important; 
     }
 
     /* Footer */
@@ -1087,109 +1184,70 @@ footer {
         padding: 20px 0 !important;
         font-size: 0.8rem !important;
     }
-}
 
-/* =========================================
-   11. GALLERY CACTUS ROW OVERRIDES
-========================================= */
-
-/* Ensure the slideshow images fit this specific container globally */
-.gallery-cactus-row .slideshow-container-cactus {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-}
-
-@media (max-width: 768px) {
-    .gallery-cactus-row {
-        display: flex !important;
-        flex-direction: row !important;
-        flex-wrap: nowrap !important;
-        overflow-x: auto !important; /* Enables swiping */
-        gap: 0 !important;
-        width: 100vw !important;
-        margin-left: calc(50% - 50vw) !important;
-        padding: 40px 80% !important; /* Centers the start of the scroll */
-        -webkit-overflow-scrolling: touch;
-        scroll-snap-type: x mandatory;
-    }
-
-    /* Clean UI: Hide scrollbar */
-    .gallery-cactus-row::-webkit-scrollbar {
-        display: none;
-    }
-
-    .gallery-cactus-row .item {
-        flex: 0 0 100vw !important; /* Width of each card */
-        min-width: 100vw !important;
-        position: relative;
-        scroll-snap-align: center;
-    }
-
-    /* Cloned Overlap Logic */
-    .gallery-cactus-row .item:nth-child(2),
-    .gallery-cactus-row .item:nth-child(3) {
-        margin-left: -112px !important; /* Change this if you want more/less overlap than home */
-    }
-}
-
-/* =========================================
-   POLAROID DESIGN FOR CACTUS GALLERY
-========================================= */
-
-/* --- POLAROID FRAME --- */
-.gallery-cactus-row {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 neat columns */
-    gap: 30px;
-    max-width: 1200px;
-    margin: 50px auto;
-    padding: 0 20px;
-}
-
-.gallery-cactus-row .item {
-    background: #ffffff;
-    padding: 25px 15px 60px 15px; 
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+.inquire-banner-section {
     display: flex;
-    flex-direction: column;
-    width: 100%; /* Fills the grid column */
+    flex-direction: column; /* Stacks the text on top of the button */
+    align-items: center;    /* Centers both elements horizontally */
+    text-align: center;     /* Ensures the text itself is centered */
+    padding: 40px 20px;     /* Gives the section clean breathing room on small screens */
+  }
+
+  .inquire-banner-section .inquire-banner-title {
+    margin-bottom: 20px;    /* Adds clean spacing between text and button */
+    font-size: 1.8rem;      /* Adjusts text size slightly for mobile screens */
+  }
+
+  .inquire-banner-section .fb-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;            /* Makes the button stretch for easy thumb-tapping */
+    max-width: 280px;       /* Prevents the button from becoming too wide */
+    padding: 12px 24px;     /* Adjusts padding for mobile proportions */
+    box-sizing: border-box;
+  }
+
 }
 
-/* 2. THE IMAGE: Fixes the gap seen in image_840195.png */
-.gallery-cactus-row .item img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover; /* Ensures square fill */
-    display: block;
-}
-
-.gallery-cactus-row .slideshow-container-cactus {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    background: transparent !important;
-}
-
-/* 3. MOBILE: Switch back to swiping mode */
 @media (max-width: 768px) {
-    .gallery-cactus-row {
-        display: flex !important; /* Switch from Grid to Flex for swiping */
-        grid-template-columns: none;
-        overflow-x: auto !important;
-        padding: 40px 10% !important; 
-        gap: 108px !important;
-        scroll-snap-type: x mandatory;
-    }
+  /* 1. Force the parent container to clear all spacing and center everything */
+  section.inquire-banner-section {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 60px 20px !important; /* Generous breathing room top and bottom */
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
 
-    .gallery-cactus-row .item {
-        flex: 0 0 80vw !important; /* Polaroid width on mobile */
-        min-width: 80vw !important;
-        scroll-snap-align: center;
-    }
-    
-    /* Clean up the scrollbar */
-    .gallery-cactus-row::-webkit-scrollbar {
-        display: none;
-    }
+  /* 2. Strip every single constraint off the title text to make it perfectly centered and massive */
+  .inquire-banner-section .inquire-banner-title {
+    /* Absolute Centering Reset */
+    display: block !important;
+    text-align: center !important;
+    margin: 0 auto 30px auto !important; /* Forces 0 left/right margins to dead-center it */
+    padding: 0 !important;             /* Removes any accidental desktop side-padding */
+    width: 100% !important;
+    left: auto !important;
+    transform: none !important;
+
+    /* High Visibility Typography */
+    font-size: 3.2rem !important;        /* Increased size dramatically for mobile dominance */
+    line-height: 1.2 !important;         /* Keeps words from overlapping if they wrap */
+    letter-spacing: 0px !important;      /* Set to 0px to prevent right-side text pushing */
+  }
+
+  /* 3. Ensure the button stays perfectly locked underneath the text */
+  .inquire-banner-section .fb-button {
+    display: inline-flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 0 auto !important;           /* Dead centers the button link container */
+    width: 70% !important;
+    max-width: 280px !important;
+  }
 }
